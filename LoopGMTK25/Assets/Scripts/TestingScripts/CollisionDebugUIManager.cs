@@ -37,6 +37,7 @@ public class CollisionDebugUIManager : MonoBehaviour
 
         PathFollower.Instance.enabled = false;
         restartUI.SetActive(true);
+        GameManager.Instance.carSpawner.SetActive(false);
     }
 
     public void RestartLevel()
