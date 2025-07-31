@@ -82,8 +82,8 @@ MonoBehaviour:
   rotateConstantly: 0
   pauseBetweenRotations: 0
   usePhysics: 1
-  rotationAxis: {x: 0, y: 0, z: 40}
-  speedRotation: 2
+  rotationAxis: {x: 0, y: 0, z: 20}
+  speedRotation: 1
   timeToRotate: 5
   timeToWait: 2
 --- !u!1 &2819191331992627401
