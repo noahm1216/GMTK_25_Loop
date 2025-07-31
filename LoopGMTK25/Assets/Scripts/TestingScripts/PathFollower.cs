@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class PathFollower : MonoBehaviour
 {
+    public static PathFollower Instance;
+    
     [System.Serializable]
     public class Follower
     {
@@ -21,6 +23,13 @@ public class PathFollower : MonoBehaviour
 
     void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        
         if (waypoints.Length < 4)
         {
             Debug.LogError("Need at least 4 waypoints for Catmull-Rom spline.");

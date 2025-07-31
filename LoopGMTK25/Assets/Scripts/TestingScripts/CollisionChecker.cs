@@ -15,7 +15,7 @@ public class CollisionChecker : MonoBehaviour
             {
                 string message = $"{name} collided with {collision.gameObject.name}";
                 Debug.Log(message);
-                CollisionDebugUIManager.Instance?.UpdateDebugText(message);
+                CollisionDebugUIManager.Instance?.CollidedUpdateGameState(message);
             }
         }
     }

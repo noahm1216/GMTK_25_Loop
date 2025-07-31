@@ -1,11 +1,16 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CollisionDebugUIManager : MonoBehaviour
 {
     public static CollisionDebugUIManager Instance;
 
     public TextMeshProUGUI debugText;
+
+    public GameObject restartUI;
+
+    public TMP_Text score;
     
     private int collisionCount = 0;
 
@@ -19,7 +24,7 @@ public class CollisionDebugUIManager : MonoBehaviour
         Instance = this;
     }
 
-    public void UpdateDebugText(string message)
+    public void CollidedUpdateGameState(string message)
     {
         collisionCount++;
         if (debugText != null)
@@ -27,5 +32,16 @@ public class CollisionDebugUIManager : MonoBehaviour
             //debugText.text = $"[{collisionCount}] {message}";
             debugText.text = message;
         }
+
+        score.text = $"Score: {CarSpawner.Instance.followerCount - 1} car(s)";
+
+        PathFollower.Instance.enabled = false;
+        restartUI.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        CarSpawner.Instance.followerCount = 0;
+        SceneManager.LoadScene("MillieTestScene");
     }
 }
