@@ -1,3 +1,7 @@
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
+using UnityEngine.Events;
+
 // Choice.cs
 [System.Serializable]
 public class Choice
