@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class PlayerController : MonoBehaviour
 {
-    
+
     [Header("Move Ability\n______________")]
     public KeyCode key_MoveRight = KeyCode.D;
     public KeyCode key_MoveLeft = KeyCode.A;
@@ -36,16 +37,28 @@ public class PlayerController : MonoBehaviour
     private bool pressedJump;
     private int timesJumpedSinceLastGround;
 
-    
+    [Space]
+    [Header("Jump Ability\n______________")]
+    //add a vector3 variable global, on start store transform position...
+    //during update, press r//esp, reset pos back to start
+    public Vector3 originPosition = new Vector3(1, 1, 1);
+    public float timeUntilStart = 0.5f;
+    public float restartTimestamp;
+    private bool pressedEsc;
+
+
     private void Start()
     {
+        originPosition = transform.position;
         if (!rb3D) TryGetComponent(out rb3D);
+
     }
 
     public bool CanJump()
     {
         return timesJumpedSinceLastGround < numberOfJumps;
     }
+
 
     private void Update()
     {
@@ -102,6 +115,22 @@ public class PlayerController : MonoBehaviour
         {
             holdingRight = false;
             holdingLeft = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && pressedEsc == false)
+        {
+            //gets time after press escape
+            restartTimestamp = Time.time;
+            pressedEsc = true;
+        }
+        if ((Time.time > restartTimestamp + timeUntilStart && pressedEsc == true))
+        {
+            //sets position back to start time
+            transform.position = originPosition;
+            pressedEsc = false;
+            if (rb3D)
+            {
+                rb3D.velocity = Vector3.zero;
+            }
         }
     }
 
