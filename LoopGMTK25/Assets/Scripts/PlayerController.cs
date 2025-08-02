@@ -40,12 +40,7 @@ public class PlayerController : MonoBehaviour
     [Range(0.00f, 100)]
     public float fallAcceleration = 15f;
 
-    //made public to add to inspector
-/*    [Range(0, 10)]
-    public int fallMultiplier = 2;*/
-
-    [Range(0.00f, 100)]
-    public UnityEvent onPress_Jump;
+    public UnityEvent onPress_Jump, onReset_Jump;
 
     //down arrow to increase acceleration of char falling
     public KeyCode key_MoveDown = KeyCode.S;
@@ -88,9 +83,11 @@ public class PlayerController : MonoBehaviour
     {
         if (pressedJump) // jumping
         {
-            if (rb3D) rb3D.AddForce(((Vector3.up) * maximumJumpPower - rb3D.velocity), ForceMode.VelocityChange);
+            if (rb3D) rb3D.AddForce(((Vector3.up) * maximumJumpPower - rb3D.velocity), ForceMode.VelocityChange); // ForceMode.VelocityChange
             timesJumpedSinceLastGround++;
             pressedJump = false;
+
+            SimpleCameraEffects.Instance.ActivateZoomOutCam();
         }
 
         // faling / moving down
@@ -174,7 +171,9 @@ public class PlayerController : MonoBehaviour
     {
         if ((layersThatResetJumps.value & (1 << col.transform.gameObject.layer)) > 0) // collide with object within our specified layers
         {
-            timesJumpedSinceLastGround = 0;          
+            onReset_Jump?.Invoke();
+            timesJumpedSinceLastGround = 0;
+            SimpleCameraEffects.Instance.ResetAllCameras();
         }      
     }
 
