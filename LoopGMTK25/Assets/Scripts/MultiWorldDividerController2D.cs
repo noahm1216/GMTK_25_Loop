@@ -98,7 +98,7 @@ public class MultiWorldDividerController2D : MonoBehaviour
 
 
             // Final clamp in case snapping pushes it out of bounds
-            snappedX = Mathf.Clamp(snappedX, leftBound, rightBound);
+            snappedX = Mathf.Clamp(rawX, leftBound, rightBound);
 
             draggingDivider.position = new Vector3(snappedX, draggingDivider.position.y, -1);
         }
