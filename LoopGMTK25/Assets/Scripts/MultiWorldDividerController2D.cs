@@ -13,6 +13,13 @@ public class MultiWorldDividerController2D : MonoBehaviour
     public List<Transform> worldParents; // Must be ordered to match zones[Header("World Sliding")]
     public int visibleWorldCount = 3;
     private int currentStartIndex = 0;  // Index of leftmost visible world
+    
+    [Header("Plane Zones")]
+    public List<Transform> planes; // One more than dividers
+    private List<Vector3> planeInitialScales = new List<Vector3>();
+    private List<Vector3> planeInitialPositions = new List<Vector3>();
+
+    private const float planeMeshWidth = 10f; // Unity default plane width
 
 
     private Camera cam;
@@ -21,6 +28,15 @@ public class MultiWorldDividerController2D : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        
+        planeInitialScales.Clear();
+        planeInitialPositions.Clear();
+
+        foreach (var plane in planes)
+        {
+            planeInitialScales.Add(plane.localScale);
+            planeInitialPositions.Add(plane.position);
+        }
     }
 
     void Update()
@@ -38,7 +54,8 @@ public class MultiWorldDividerController2D : MonoBehaviour
             UpdateWorldVisibility();
         }
 
-        UpdateWorldVisibility();
+        //UpdateWorldVisibility();
+        UpdatePlanesBetweenDividers();
     }
 
 
@@ -138,6 +155,47 @@ public class MultiWorldDividerController2D : MonoBehaviour
             }
         }
     }
+    
+    void UpdatePlanesBetweenDividers()
+    {
+        if (planes.Count != dividers.Count + 1)
+        {
+            Debug.LogError("Plane count must be one more than divider count.");
+            return;
+        }
+
+        // Build edge positions
+        List<float> edgePositions = new List<float>();
+        edgePositions.Add(minX);
+        foreach (Transform divider in dividers)
+        {
+            edgePositions.Add(divider.position.x);
+        }
+        edgePositions.Add(maxX);
+
+        for (int i = 0; i < planes.Count; i++)
+        {
+            float leftEdge = edgePositions[i];
+            float rightEdge = edgePositions[i + 1];
+            float segmentWidth = rightEdge - leftEdge;
+
+            // Compute center of segment
+            float segmentCenter = (leftEdge + rightEdge) * 0.5f;
+
+            // Scale X to fill segment exactly
+            float worldWidth = segmentWidth;
+            float localScaleX = worldWidth / planeMeshWidth;
+
+            // Apply
+            Transform plane = planes[i];
+            Vector3 originalScale = planeInitialScales[i];
+            Vector3 originalPos = planeInitialPositions[i];
+
+            plane.localScale = new Vector3(localScaleX, originalScale.y, originalScale.z);
+            plane.position = new Vector3(segmentCenter, originalPos.y, originalPos.z);
+        }
+    }
+
 
 
 
