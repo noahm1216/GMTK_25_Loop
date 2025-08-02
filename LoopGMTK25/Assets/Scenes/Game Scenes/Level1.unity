@@ -2595,6 +2595,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3967886355756061812, guid: 34e0aa6706a7c6d46989e4a737afda2a,
         type: 3}
+      propertyPath: maxX
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967886355756061812, guid: 34e0aa6706a7c6d46989e4a737afda2a,
+        type: 3}
+      propertyPath: minX
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967886355756061812, guid: 34e0aa6706a7c6d46989e4a737afda2a,
+        type: 3}
       propertyPath: visibleWorldCount
       value: 2
       objectReference: {fileID: 0}
