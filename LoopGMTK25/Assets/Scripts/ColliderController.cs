@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class ColliderController : MonoBehaviour
     public Bounds colliderBounds;
     private MeshRenderer _meshRenderer;
     public BoxCollider boxCollider;
-    
-    void Start()
+
+    private void OnEnable()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
