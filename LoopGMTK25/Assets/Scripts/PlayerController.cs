@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("Jump Ability\n______________")]
     public KeyCode key_Jump = KeyCode.Space;
+    public KeyCode key_Up = KeyCode.Space;
 
     public float maximumJumpPower = 20; // 20 if standardized || 95 if not
     public Rigidbody rb3D;    
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
 
     private float inputJumpTime, fallMultiplier; // the time we press down any of the keys
-    private bool pressedJump, holdingDown;
+    private bool pressedJump, pressedUp;
     private int timesJumpedSinceLastGround;
 
     [Space]
@@ -82,12 +83,19 @@ public class PlayerController : MonoBehaviour
             pressedJump = false;
         }
 
+        if (pressedUp) // jumping--same as spacebar, only for "W" key
+        {
+            if (rb3D) rb3D.AddForce(((Vector3.up) * maximumJumpPower - rb3D.velocity), ForceMode.VelocityChange);
+            timesJumpedSinceLastGround++;
+            pressedJump = false;
+        }
+
         // faling / moving down
         if (rb3D.velocity.y < 0) rb3D.AddForce(Vector3.down * (1 * fallAcceleration*fallMultiplier));
        
 
 
-            if (holdingRight)
+        if (holdingRight)
         {
             currentMovePower += maximumMovePower * moveAccelleration; // steady increase (can change to currentMovePower for exponential
             if (currentMovePower > maximumMovePower) currentMovePower = maximumMovePower;
@@ -109,8 +117,16 @@ public class PlayerController : MonoBehaviour
             inputJumpTime = Time.time;
             pressedJump = true;
         }
-        //down arrown speed acceleration
-        if (Input.GetKey(key_MoveDown)) fallMultiplier = 2; 
+       
+        //W button sub for Space
+        if (Input.GetKeyDown(key_Up) && CanJump()) {
+            onPress_Jump?.Invoke();
+            inputJumpTime = Time.time;
+            pressedJump = true; 
+        }
+        
+        //S Button for falling speed acceleration
+        if (Input.GetKey(key_MoveDown)) fallMultiplier = 3; 
         if (Input.GetKeyUp(key_MoveDown)) fallMultiplier = 1;
 
 
