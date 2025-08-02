@@ -46,7 +46,7 @@ public class SimpleCameraEffects : MonoBehaviour
         _brain = Camera.main.GetComponent<CinemachineBrain>();
         _originalOrthoSize = _baseCamera.m_Lens.OrthographicSize;
         ResetAllCameras();
-        ApplyPreset(2);
+        ApplyPreset(1);
     }
 
     // ===== CORE FUNCTIONS =====
@@ -58,12 +58,15 @@ public class SimpleCameraEffects : MonoBehaviour
 
     public void ActivateZoomCam()
     {
-        _zoomCamera.Priority = 20;
+        ApplyPreset(1);
+        _zoomCamera.Priority = 20; 
     }
 
     public void ActivateZoomOutCam()
     {
+        ApplyPreset(2);
         _zoomOutCamera.Priority = 20;
+        
     }
 
     public void PlayZoomOutEffect(float duration)

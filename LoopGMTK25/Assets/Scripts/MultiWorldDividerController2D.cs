@@ -78,7 +78,7 @@ public class MultiWorldDividerController2D : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             draggingDivider = null;
-            //SimpleCameraEffects.Instance.ResetAllCameras();
+            SimpleCameraEffects.Instance.ResetAllCameras();
             
 
         }
@@ -86,7 +86,7 @@ public class MultiWorldDividerController2D : MonoBehaviour
         if (draggingDivider != null)
         {
 
-            //SimpleCameraEffects.Instance.ActivateZoomCam();
+            SimpleCameraEffects.Instance.ActivateZoomCam();
 
             int index = dividers.IndexOf(draggingDivider);
 

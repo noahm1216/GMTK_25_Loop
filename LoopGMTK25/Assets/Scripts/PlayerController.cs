@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
             if (rb3D) rb3D.AddForce(((Vector3.up) * maximumJumpPower - rb3D.velocity), ForceMode.VelocityChange); // ForceMode.VelocityChange
             timesJumpedSinceLastGround++;
             pressedJump = false;
+
+            SimpleCameraEffects.Instance.ActivateZoomOutCam();
         }
 
         // faling / moving down
@@ -153,7 +155,8 @@ public class PlayerController : MonoBehaviour
         if ((layersThatResetJumps.value & (1 << col.transform.gameObject.layer)) > 0) // collide with object within our specified layers
         {
             onReset_Jump?.Invoke();
-            timesJumpedSinceLastGround = 0;          
+            timesJumpedSinceLastGround = 0;
+            SimpleCameraEffects.Instance.ResetAllCameras();
         }      
     }
 
