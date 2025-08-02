@@ -10,7 +10,10 @@ public class MultiWorldDividerController2D : MonoBehaviour
     public float minDistanceBetweenDividers = 1f;
 
     [Header("World Parents")]
-    public List<Transform> worldParents; // Must be ordered to match zones
+    public List<Transform> worldParents; // Must be ordered to match zones[Header("World Sliding")]
+    public int visibleWorldCount = 3;
+    private int currentStartIndex = 0;  // Index of leftmost visible world
+
 
     private Camera cam;
     private Transform draggingDivider = null;
@@ -23,8 +26,22 @@ public class MultiWorldDividerController2D : MonoBehaviour
     void Update()
     {
         HandleDrag();
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            currentStartIndex = (currentStartIndex - 1 + worldParents.Count) % worldParents.Count;
+            UpdateWorldVisibility();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            currentStartIndex = (currentStartIndex + 1) % worldParents.Count;
+            UpdateWorldVisibility();
+        }
+
         UpdateWorldVisibility();
     }
+
+
 
     void HandleDrag()
     {
@@ -70,27 +87,58 @@ public class MultiWorldDividerController2D : MonoBehaviour
         }
     }
 
-
-
     void UpdateWorldVisibility()
     {
-        List<float> borders = new List<float>();
-        borders.Add(minX); // Start of world 0
-        foreach (Transform divider in dividers)
-            borders.Add(divider.position.x);
-        borders.Add(maxX); // End of last world
+        int zones = visibleWorldCount;
 
-        for (int i = 0; i < worldParents.Count; i++)
+        // Safety: make sure dividers.Count == visibleWorldCount - 1
+        if (dividers.Count != zones - 1)
         {
-            float left = borders[i];
-            float right = borders[i + 1];
+            Debug.LogError("Divider count must be one less than visible world count.");
+            return;
+        }
 
-            foreach (Transform child in worldParents[i])
+        // Build bounds
+        List<float> leftBounds = new List<float>();
+        List<float> rightBounds = new List<float>();
+
+        leftBounds.Add(minX); // first zone starts at minX
+
+        for (int i = 0; i < dividers.Count; i++)
+        {
+            rightBounds.Add(dividers[i].position.x);           // end of zone i
+            leftBounds.Add(dividers[i].position.x);            // start of zone i+1
+        }
+
+        rightBounds.Add(maxX); // last zone ends at maxX
+
+        // Disable everything
+        foreach (Transform world in worldParents)
+        {
+            foreach (Transform child in world)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        // Show the N visible worlds starting from currentStartIndex
+        for (int zone = 0; zone < zones; zone++)
+        {
+            int worldIndex = (currentStartIndex + zone) % worldParents.Count;
+            Transform world = worldParents[worldIndex];
+
+            float zoneLeft = leftBounds[zone];
+            float zoneRight = rightBounds[zone];
+
+            foreach (Transform child in world)
             {
                 float x = child.position.x;
-                bool visible = (x >= left && x < right);
+                bool visible = (x >= zoneLeft && x < zoneRight);
                 child.gameObject.SetActive(visible);
             }
         }
     }
+
+
+
 }
