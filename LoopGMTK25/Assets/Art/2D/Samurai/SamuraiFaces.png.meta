@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,9 +126,9 @@ TextureImporter:
       name: SamuraiFaces_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 1
         y: 768
-        width: 249
+        width: 247
         height: 254
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -399,12 +399,12 @@ TextureImporter:
       name: SamuraiFaces_13
       rect:
         serializedVersion: 2
-        x: 256
+        x: 261
         y: 3
-        width: 255
+        width: 246
         height: 249
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.50676054, y: 0.51202226}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -458,6 +458,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SamuraiFaces_NONE
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 4
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4979f31c156feb4c8baa36e29ecc975
+      internalID: -740239123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -485,6 +506,7 @@ TextureImporter:
       SamuraiFaces_7: -1251908496
       SamuraiFaces_8: 1505119695
       SamuraiFaces_9: 1993807606
+      SamuraiFaces_NONE: -740239123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
