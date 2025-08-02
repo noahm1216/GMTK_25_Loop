@@ -12,12 +12,24 @@ public class Region : MonoBehaviour
 
     public BoxCollider boxCollider;
 
-    private CharacterController3D _player;
-    
+    private PlayerController _player;
+
+    private CapsuleCollider playerCollider;
+
+    public enum LayerIndex
+    {
+        PhysicsA = 6,
+        PhysicsB = 7,
+        PhysicsC = 8
+    }
+
+    public LayerIndex layerIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController3D>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerCollider = _player.GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -25,7 +37,7 @@ public class Region : MonoBehaviour
     {
         if (boxCollider.bounds.Contains(_player.transform.position))
         {
-            _player.groundMask = colliderLayerMask;
+            playerCollider.excludeLayers = ~((1 << 0) | (1 << (int)layerIndex));
         }
     }
 
