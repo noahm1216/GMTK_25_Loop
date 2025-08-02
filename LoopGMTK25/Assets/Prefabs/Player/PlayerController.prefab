@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896790d7865dd244990390fbaa29cb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 1080350565983343311}
   animCon: {fileID: 6349514488028956853}
   rb3D: {fileID: 9081924851436879918}
 --- !u!1 &5809037036456362786
@@ -521,7 +522,38 @@ MonoBehaviour:
   fallAcceleration: 15
   onPress_Jump:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5667977540168743850}
+        m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
+        m_MethodName: TriggerJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReset_Jump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5667977540168743850}
+        m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
+        m_MethodName: ResetTriggers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  key_MoveDown: 115
+  originPosition: {x: 1, y: 1, z: 1}
+  timeUntilStart: 0.5
+  restartTimestamp: 0
 --- !u!1 &7249008418649335596
 GameObject:
   m_ObjectHideFlags: 0

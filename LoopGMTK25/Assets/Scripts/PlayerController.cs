@@ -33,8 +33,7 @@ public class PlayerController : MonoBehaviour
     [Range(0.00f, 100)]
     public float fallAcceleration = 15f;
 
-    [Range(0.00f, 100)]
-    public UnityEvent onPress_Jump;
+    public UnityEvent onPress_Jump, onReset_Jump;
 
     //down arrow to increase acceleration of char falling
     public KeyCode key_MoveDown = KeyCode.S;
@@ -77,7 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         if (pressedJump) // jumping
         {
-            if (rb3D) rb3D.AddForce(((Vector3.up) * maximumJumpPower - rb3D.velocity), ForceMode.VelocityChange);
+            if (rb3D) rb3D.AddForce(((Vector3.up) * maximumJumpPower - rb3D.velocity), ForceMode.VelocityChange); // ForceMode.VelocityChange
             timesJumpedSinceLastGround++;
             pressedJump = false;
         }
@@ -153,6 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         if ((layersThatResetJumps.value & (1 << col.transform.gameObject.layer)) > 0) // collide with object within our specified layers
         {
+            onReset_Jump?.Invoke();
             timesJumpedSinceLastGround = 0;          
         }      
     }
