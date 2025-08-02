@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class PlayerController : MonoBehaviour
 {
-    
+
+
     [Header("Move Ability\n______________")]
     public KeyCode key_MoveRight = KeyCode.D;
     public KeyCode key_MoveLeft = KeyCode.A;
@@ -20,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     [Space]
     [Header("Jump Ability\n______________")]
-    public KeyCode key_Jump = KeyCode.Space;   
+    public KeyCode key_Jump = KeyCode.Space;
+
     public float maximumJumpPower = 20; // 20 if standardized || 95 if not
     public Rigidbody rb3D;    
     [Range(0, 10)]
@@ -30,22 +33,40 @@ public class PlayerController : MonoBehaviour
     [Range(0.00f, 100)]
     public float fallAcceleration = 15f;
 
+    [Range(0.00f, 100)]
     public UnityEvent onPress_Jump;
 
-    private float inputJumpTime; // the time we press down any of the keys
-    private bool pressedJump;
+    //down arrow to increase acceleration of char falling
+    public KeyCode key_MoveDown = KeyCode.S;
+
+
+    private float inputJumpTime, fallMultiplier; // the time we press down any of the keys
+    private bool pressedJump, holdingDown;
     private int timesJumpedSinceLastGround;
 
-    
+    [Space]
+    [Header("Escape Restart\n______________")]
+    //add a vector3 variable global, on start store transform position...
+    //during update, press r//esp, reset pos back to start
+    public Vector3 originPosition = new Vector3(1, 1, 1);
+    public float timeUntilStart = 0.5f;
+    public float restartTimestamp;
+    private bool pressedEsc;
+
+
+
     private void Start()
     {
+        originPosition = transform.position;
         if (!rb3D) TryGetComponent(out rb3D);
+
     }
 
     public bool CanJump()
     {
         return timesJumpedSinceLastGround < numberOfJumps;
     }
+
 
     private void Update()
     {
@@ -60,10 +81,13 @@ public class PlayerController : MonoBehaviour
             timesJumpedSinceLastGround++;
             pressedJump = false;
         }
-        // faling / moving down
-        if (rb3D.velocity.y < 0) rb3D.AddForce(Vector3.down * (1 * fallAcceleration));
 
-        if (holdingRight)
+        // faling / moving down
+        if (rb3D.velocity.y < 0) rb3D.AddForce(Vector3.down * (1 * fallAcceleration*fallMultiplier));
+       
+
+
+            if (holdingRight)
         {
             currentMovePower += maximumMovePower * moveAccelleration; // steady increase (can change to currentMovePower for exponential
             if (currentMovePower > maximumMovePower) currentMovePower = maximumMovePower;
@@ -85,6 +109,10 @@ public class PlayerController : MonoBehaviour
             inputJumpTime = Time.time;
             pressedJump = true;
         }
+        //down arrown speed acceleration
+        if (Input.GetKey(key_MoveDown)) fallMultiplier = 2; 
+        if (Input.GetKeyUp(key_MoveDown)) fallMultiplier = 1;
+
 
         if (Input.GetKey(key_MoveRight)) // holding right
         {
@@ -102,6 +130,22 @@ public class PlayerController : MonoBehaviour
         {
             holdingRight = false;
             holdingLeft = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && pressedEsc == false)
+        {
+            //gets time after press escape
+            restartTimestamp = Time.time;
+            pressedEsc = true;
+        }
+        if ((Time.time > restartTimestamp + timeUntilStart && pressedEsc == true))
+        {
+            //sets position back to start time
+            transform.position = originPosition;
+            pressedEsc = false;
+            if (rb3D)
+            {
+                rb3D.velocity = Vector3.zero;
+            }
         }
     }
 
