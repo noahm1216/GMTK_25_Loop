@@ -53,17 +53,23 @@ public class MultiWorldDividerController2D : MonoBehaviour
             Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
             float rawX = mouseWorldPos.x;
 
-            // Define exclusive valid movement bounds for this divider
-            float leftLimit = (index == 0) ? minX : dividers[index - 1].position.x + minDistanceBetweenDividers;
-            float rightLimit = (index == dividers.Count - 1) ? maxX : dividers[index + 1].position.x - minDistanceBetweenDividers;
+            // Calculate full clamped range
+            float leftBound = (index == 0) ? minX + 1f : dividers[index - 1].position.x + minDistanceBetweenDividers;
+            float rightBound = (index == dividers.Count - 1) ? maxX - 1f : dividers[index + 1].position.x - minDistanceBetweenDividers;
 
-            // Clamp and snap
-            rawX = Mathf.Clamp(rawX, leftLimit, rightLimit);
-            float snappedX = Mathf.Round(rawX) + 0.5f;
+            rawX = Mathf.Clamp(rawX, leftBound, rightBound);
+
+            // Snap to nearest unit
+            float snappedX = Mathf.Round(rawX - 0.5f) + 0.5f;
+
+
+            // Final clamp in case snapping pushes it out of bounds
+            snappedX = Mathf.Clamp(snappedX, leftBound, rightBound);
 
             draggingDivider.position = new Vector3(snappedX, draggingDivider.position.y, -1);
         }
     }
+
 
 
     void UpdateWorldVisibility()
