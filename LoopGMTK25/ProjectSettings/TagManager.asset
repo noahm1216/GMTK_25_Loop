@@ -34,9 +34,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Mask3
+  - Mask2
+  - Mask1
   m_SortingLayers:
   - name: Default
     uniqueID: 0

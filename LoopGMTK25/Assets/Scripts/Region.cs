@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Region : MonoBehaviour
 {
-    public LayerMask colliderLayerMask;
     
     public Color regionColor;
 
@@ -28,6 +27,7 @@ public class Region : MonoBehaviour
     }
 
     public LayerIndex layerIndex;
+    
 
     void Start()
     {
@@ -103,7 +103,7 @@ public class Region : MonoBehaviour
             }
         }
     }
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = regionColor;
