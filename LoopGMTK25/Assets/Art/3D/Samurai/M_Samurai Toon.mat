@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Pixilate_Amount: 80
+    - _Pixilate_Amount: 400
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 0

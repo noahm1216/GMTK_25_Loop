@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class UIAnimationPlayer : MonoBehaviour
 {
@@ -30,6 +31,11 @@ public class UIAnimationPlayer : MonoBehaviour
             return;
 
         PlayAnimation();
+
+        if (frameID == keyframesInOrder.Length - 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void PlayAnimation()
