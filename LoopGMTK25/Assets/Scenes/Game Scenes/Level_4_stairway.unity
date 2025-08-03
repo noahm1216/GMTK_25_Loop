@@ -270,7 +270,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -8574,7 +8574,7 @@ PrefabInstance:
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07086055
+      value: 0.07086051
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
@@ -8584,7 +8584,7 @@ PrefabInstance:
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0096328175
+      value: 0.009632814
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
