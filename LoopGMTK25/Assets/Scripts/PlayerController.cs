@@ -11,18 +11,25 @@ public class PlayerController : MonoBehaviour
     [Header("Move Ability\n______________")]
     public KeyCode key_MoveRight = KeyCode.D;
     public KeyCode key_MoveLeft = KeyCode.A;
+
+    //pressing shift gives power boost
+    public KeyCode key_SpeedBoost1 = KeyCode.LeftShift;
+    public KeyCode key_SpeedBoost2 = KeyCode.RightShift;
+
     public float maximumMovePower = 5;
     public float moveAccelleration = 0.15f;
     [Range(0.1f, 1)]
     public float changeSpeedOnDirectionChange = 0.5f;
+    public float speedBoost = 2;
 
     private float currentMovePower;
-    private bool holdingRight, holdingLeft;
+    private bool holdingRight, holdingLeft, holdingShift;
 
 
     [Space]
     [Header("Jump Ability\n______________")]
     public KeyCode key_Jump = KeyCode.Space;
+    public KeyCode key_Jump2 = KeyCode.W;
 
     public float maximumJumpPower = 20; // 20 if standardized || 95 if not
     public Rigidbody rb3D;    
@@ -40,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
 
     private float inputJumpTime, fallMultiplier; // the time we press down any of the keys
-    private bool pressedJump, holdingDown;
+    private bool pressedJump;
     private int timesJumpedSinceLastGround;
 
     [Space]
@@ -85,33 +92,43 @@ public class PlayerController : MonoBehaviour
 
         // faling / moving down
         if (rb3D.velocity.y < 0) rb3D.AddForce(Vector3.down * (1 * fallAcceleration*fallMultiplier));
-       
 
-
-            if (holdingRight)
+        if (holdingRight)
         {
-            currentMovePower += maximumMovePower * moveAccelleration; // steady increase (can change to currentMovePower for exponential
+            //checks for speed boost
+            currentMovePower += maximumMovePower * moveAccelleration;// steady increase (can change to currentMovePower for exponential
             if (currentMovePower > maximumMovePower) currentMovePower = maximumMovePower;
-            if (rb3D) rb3D.AddForce(((Vector3.right) * currentMovePower - rb3D.velocity), ForceMode.Acceleration);
+            if (rb3D) rb3D.AddForce(((Vector3.right) * speedBoost* currentMovePower - rb3D.velocity), ForceMode.Acceleration);
         }
         if (holdingLeft)
         {
-            currentMovePower -= maximumMovePower * moveAccelleration; // steady increase (can change to currentMovePower for exponential
+            //checks for speed boost
+            currentMovePower -= maximumMovePower * moveAccelleration;// steady increase (can change to currentMovePower for exponential
             if (currentMovePower < -maximumMovePower) currentMovePower = -maximumMovePower;
-            if (rb3D) rb3D.AddForce(((Vector3.right) * currentMovePower - rb3D.velocity), ForceMode.Acceleration);
+            if (rb3D) rb3D.AddForce(((Vector3.right) * speedBoost* currentMovePower - rb3D.velocity), ForceMode.Acceleration);
         }
     }
 
     private void CheckForInputs()
     {
-        if (Input.GetKeyDown(key_Jump) && CanJump())
+        if(Input.GetKey(key_SpeedBoost1) || Input.GetKey(key_SpeedBoost2))
+        {
+            speedBoost = 2;
+        }
+        else
+        {
+            speedBoost = 1;
+        }
+
+        if (Input.GetKeyDown(key_Jump) && CanJump() || Input.GetKeyDown(key_Jump2) && CanJump())
         {
             onPress_Jump?.Invoke();
             inputJumpTime = Time.time;
             pressedJump = true;
         }
-        //down arrown speed acceleration
-        if (Input.GetKey(key_MoveDown)) fallMultiplier = 2; 
+        
+        //S Button for falling speed acceleration
+        if (Input.GetKey(key_MoveDown)) fallMultiplier = 3; 
         if (Input.GetKeyUp(key_MoveDown)) fallMultiplier = 1;
 
 
