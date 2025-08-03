@@ -59,13 +59,15 @@ public class PlayerController : MonoBehaviour
     public float restartTimestamp;
     private bool pressedEsc;
 
+    private AudioClipHolder clipHolder;
+
 
 
     private void Start()
     {
         originPosition = transform.position;
         if (!rb3D) TryGetComponent(out rb3D);
-
+        clipHolder = GetComponent<AudioClipHolder>();
     }
 
     public bool CanJump()
@@ -88,6 +90,17 @@ public class PlayerController : MonoBehaviour
             pressedJump = false;
 
             SimpleCameraEffects.Instance.ActivateZoomOutCam();
+            if (AudioController.Instance != null)
+            {
+                AudioController.Instance.PlaySFX(clipHolder.SFXClips[0]);
+            }
+            else
+            {
+                Debug.LogWarning("AudioController not initialized yet.");
+            }
+
+            
+            Debug.Log("Testing");
         }
 
         // faling / moving down

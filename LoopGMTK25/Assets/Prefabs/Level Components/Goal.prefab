@@ -245,7 +245,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicClips: []
   ambientClips: []
-  SFXClips: []
+  SFXClips:
+  - {fileID: 8300000, guid: 5900b4756a3a9994489274418b51f86f, type: 3}
+  - {fileID: 8300000, guid: 1deed56127cd9784caaa04064c97187e, type: 3}
+  - {fileID: 8300000, guid: 05f79d0226ee3634e800b6b944bccb11, type: 3}
 --- !u!114 &2627344648193541289
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 7267373349490034919}
   - component: {fileID: 9081924851436879918}
   - component: {fileID: 8463807292336958490}
+  - component: {fileID: -2175175439241893467}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -616,6 +617,23 @@ MonoBehaviour:
   originPosition: {x: 1, y: 1, z: 1}
   timeUntilStart: 0.5
   restartTimestamp: 0
+--- !u!114 &-2175175439241893467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027919440118724749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6fcd9bd224ef14d88e6912918542b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClips: []
+  ambientClips: []
+  SFXClips:
+  - {fileID: 8300000, guid: a059e34562bc6db46ba7d0a7e4518fe2, type: 3}
+  - {fileID: 8300000, guid: 189927eff4d070c4abfac63c7e7547b0, type: 3}
 --- !u!1001 &2603629796595268288
 PrefabInstance:
   m_ObjectHideFlags: 0

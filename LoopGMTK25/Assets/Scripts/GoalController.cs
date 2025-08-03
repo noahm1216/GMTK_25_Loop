@@ -35,6 +35,16 @@ public class GoalController : MonoBehaviour
                 counter = maxTime;
                 Debug.Log("Goal reached!");
                 goalReached = true;
+
+                if (AudioController.Instance != null)
+                {
+                    AudioController.Instance.PlaySFX(audioClips.SFXClips[1]);
+                }
+                else
+                {
+                    Debug.LogWarning("AudioController not initialized yet.");
+                }
+
             }
         }
     }
@@ -47,6 +57,14 @@ public class GoalController : MonoBehaviour
             onExit?.Invoke();
             isInside = false;
             ResetCounter();
+            if (AudioController.Instance != null)
+            {
+                AudioController.Instance.PlaySFX(audioClips.SFXClips[2]);
+            }
+            else
+            {
+                Debug.LogWarning("AudioController not initialized yet.");
+            }
         }
     }
 
@@ -56,6 +74,15 @@ public class GoalController : MonoBehaviour
         {
             onHovering?.Invoke();
             isInside = true;
+
+            if (AudioController.Instance != null)
+            {
+                AudioController.Instance.PlaySFX(audioClips.SFXClips[0]);
+            }
+            else
+            {
+                Debug.LogWarning("AudioController not initialized yet.");
+            }
         }
         //Play some Audio maybe...
     }
