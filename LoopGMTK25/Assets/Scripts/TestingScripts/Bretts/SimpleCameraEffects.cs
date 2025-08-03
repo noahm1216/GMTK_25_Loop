@@ -134,6 +134,7 @@ public class SimpleCameraEffects : MonoBehaviour
         _zoomCamera.Priority = 0;
         _zoomOutCamera.Priority = 0;
         _shakeCamera.Priority = 0;
+        _finishCamera.Priority = 0;
     }
 
     public void ForceReset()
