@@ -43,16 +43,16 @@ public class MultiWorldDividerController2D : MonoBehaviour
     {
         HandleDrag();
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            currentStartIndex = (currentStartIndex - 1 + worldParents.Count) % worldParents.Count;
-            UpdateWorldVisibility();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            currentStartIndex = (currentStartIndex + 1) % worldParents.Count;
-            UpdateWorldVisibility();
-        }
+        // if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // {
+        //     currentStartIndex = (currentStartIndex - 1 + worldParents.Count) % worldParents.Count;
+        //     UpdateWorldVisibility();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     currentStartIndex = (currentStartIndex + 1) % worldParents.Count;
+        //     UpdateWorldVisibility();
+        // }
 
         //UpdateWorldVisibility();
         UpdatePlanesBetweenDividers();
