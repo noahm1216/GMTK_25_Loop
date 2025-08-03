@@ -59,6 +59,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alphaclip: 0.5
     - _Pixilate_Amount: 171.6
     - _QueueControl: 0
     - _QueueOffset: 0
