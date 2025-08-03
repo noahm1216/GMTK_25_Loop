@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Level_2_IntroToLoopSplit.unity
     guid: 4870b248ca69a4f49a707151450e8b7e
   - enabled: 1
-    path: Assets/Scenes/TestingScenes/MillieMaskTesting Level2.unity
-    guid: 6e3621604010033438772a2b3e65f117
+    path: Assets/Scenes/Game Scenes/Level_3_RicardoJourney.unity
+    guid: 1ed400c16ccedf142ba6c63d5cbecbc4
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level_4_stairway.unity
+    guid: 01750cca2eb3e33489a806756b66f43a
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level_5_DraftDay.unity
+    guid: e3e119928ad8a7a44af54d6c7d93ce68
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/WinScene.unity
+    guid: c9610a0339a1e0644ba6d719c9289246
   m_configObjects: {}
