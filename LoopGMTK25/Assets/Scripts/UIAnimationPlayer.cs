@@ -16,7 +16,7 @@ public class UIAnimationPlayer : MonoBehaviour
     private float lastframeTimeStamp;
     private float animationTime;
 
-    public UnityEvent onEnableEvents;
+    public UnityEvent onEnableEvents, onFinishedPlaying;
 
 
     public void OnEnable()
@@ -34,7 +34,7 @@ public class UIAnimationPlayer : MonoBehaviour
 
     private void PlayAnimation()
     {
-        if (frameID < keyframesInOrder.Length-1)
+        if (frameID < keyframesInOrder.Length - 1)
         {
             animationTime += Time.deltaTime * framerate;
             frameID = (int)animationTime % keyframesInOrder.Length;
@@ -44,7 +44,7 @@ public class UIAnimationPlayer : MonoBehaviour
             if (loop)
             { frameID = loopFromFrame; animationTime = loopFromFrame; }
             else
-             frameID = keyframesInOrder.Length - 1; 
+            { frameID = keyframesInOrder.Length - 1; onFinishedPlaying?.Invoke(); }
         }
 
         targetUIDisplay.sprite = keyframesInOrder[frameID];
