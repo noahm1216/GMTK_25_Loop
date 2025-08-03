@@ -19385,17 +19385,17 @@ PrefabInstance:
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.010742157
+      value: -0.010742172
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.16290607
+      value: -0.16290608
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0017737638
+      value: -0.0017737664
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25958,7 +25958,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 30505f96fab02e5468148e75b4662ad1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
