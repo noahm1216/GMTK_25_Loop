@@ -523,6 +523,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Samurai
       objectReference: {fileID: 0}
+    - target: {fileID: 2904152042726391984, guid: 814999ae5539f714b87cf7976a7ecf6f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117699731257024092, guid: 814999ae5539f714b87cf7976a7ecf6f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5221195195598166607, guid: 814999ae5539f714b87cf7976a7ecf6f,
         type: 3}
       propertyPath: m_LocalPosition.x
