@@ -22,8 +22,18 @@ public class SceneLoader : MonoBehaviour
 
     public void SetSceneSequentially() // a.k.a this one
     {
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        sceneNameToLoad = SceneManager.GetSceneAt(nextScene).name;
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = (currentScene + 1);
+        //sceneNameToLoad = SceneManager.GetSceneAt(nextScene).name; //This doesn't get scene 
+        if (nextScene < SceneManager.sceneCountInBuildSettings) //Clever way to get the scene name from index (Copilot helped write this)
+        {
+            sceneNameToLoad = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(nextScene));
+        }
+        else
+        {
+            Debug.LogWarning("Next scene index is out of range.");
+        }
+
     }
 
     public void SetTimeToWait(float _time) // set a time to load
@@ -47,4 +57,7 @@ public class SceneLoader : MonoBehaviour
             loadingSceneNow = false;
         }
     }
+
+    
+
 }
