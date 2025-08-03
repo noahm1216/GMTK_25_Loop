@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 0.2
+    m_Time: 0.5
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -19320,17 +19320,17 @@ PrefabInstance:
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.010742127
+      value: -0.010742144
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.16290608
+      value: -0.16290604
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.001773759
+      value: -0.0017737614
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
