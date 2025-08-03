@@ -14,6 +14,6 @@ public class BackToMenu : MonoBehaviour
     public void ToMainMenu()
     {
         AudioController.Instance.StopMusic();
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("PlayMenu");
     }
 }

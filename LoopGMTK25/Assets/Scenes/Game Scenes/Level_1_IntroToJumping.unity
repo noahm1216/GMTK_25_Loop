@@ -5163,11 +5163,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1653418973427256395, guid: 17b3dc959e228c749b6b42652978f26d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17b3dc959e228c749b6b42652978f26d, type: 3}
 --- !u!4 &279226153 stripped
 Transform:
@@ -12353,7 +12349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2e033c294e029c8479141d2cee5592c9, type: 2}
+  - {fileID: 2100000, guid: 816736eaa89115f4892938ed7d3c4129, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16512,7 +16508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1312695747
 Transform:
   m_ObjectHideFlags: 0
@@ -19765,6 +19761,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CAMERA SYSTEM V1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9857338
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06940324
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15295786
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.010769411
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6497,11 +6497,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1653418973427256395, guid: 17b3dc959e228c749b6b42652978f26d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17b3dc959e228c749b6b42652978f26d, type: 3}
 --- !u!4 &279226153 stripped
 Transform:
@@ -12688,7 +12684,7 @@ PrefabInstance:
     - target: {fileID: 2813425922638735519, guid: 169f65119ed953c468df0d87066fff56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -4.31
       objectReference: {fileID: 0}
     - target: {fileID: 2813425922638735519, guid: 169f65119ed953c468df0d87066fff56,
         type: 3}
@@ -12942,7 +12938,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2e033c294e029c8479141d2cee5592c9, type: 2}
+  - {fileID: 2100000, guid: 816736eaa89115f4892938ed7d3c4129, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16803,7 +16799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1312695747
 Transform:
   m_ObjectHideFlags: 0
@@ -19320,17 +19316,17 @@ PrefabInstance:
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.010742172
+      value: -0.010742157
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.16290608
+      value: -0.16290604
       objectReference: {fileID: 0}
     - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0017737664
+      value: -0.0017737636
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21059,7 +21055,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 069165863be6b8e4097f2da60d640dcc, type: 2}
+  - {fileID: 2100000, guid: 816736eaa89115f4892938ed7d3c4129, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
