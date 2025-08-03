@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Menu.unity
     guid: 1c4a082587c2e9d4dbf567fc716385b7
   - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level_0_Intro.unity
+    guid: 81fcf36602b01e848979efce82da0113
+  - enabled: 1
     path: Assets/Scenes/TestingScenes/MillieMaskTesting Level2.unity
     guid: 6e3621604010033438772a2b3e65f117
   m_configObjects: {}

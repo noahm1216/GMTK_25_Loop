@@ -22,8 +22,8 @@ public class SceneLoader : MonoBehaviour
 
     public void SetSceneSequentially() // a.k.a this one
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        sceneNameToLoad = SceneManager.GetSceneAt(currentScene + 1).name;
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        sceneNameToLoad = SceneManager.GetSceneAt(nextScene).name;
     }
 
     public void SetTimeToWait(float _time) // set a time to load
@@ -42,7 +42,9 @@ public class SceneLoader : MonoBehaviour
         {
             loadingSceneNow = true;
             yield return new WaitForSeconds(timeToWait);
+            if (string.IsNullOrEmpty(sceneNameToLoad)) sceneNameToLoad = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(sceneNameToLoad);
+            loadingSceneNow = false;
         }
     }
 }
