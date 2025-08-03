@@ -438,7 +438,7 @@ Camera:
   far clip plane: 1000
   field of view: 62
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 5.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 0.7
+    m_Time: 0.3
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -2022,9 +2022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6cab4a4ab15f64f99737de48fc6fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
   regionColor: {r: 0, g: 0, b: 0, a: 0}
   boxCollider: {fileID: 694859025}
   layerIndex: 6
@@ -2353,9 +2350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6cab4a4ab15f64f99737de48fc6fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   regionColor: {r: 0, g: 0, b: 0, a: 0}
   boxCollider: {fileID: 870760194}
   layerIndex: 8
@@ -3622,11 +3616,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 416262704107691578, guid: fea563a877e1d984ca185b2f8bb6a181,
-        type: 3}
-      propertyPath: _transitionPresets.Array.data[2].duration
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 922275517904286462, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3676,11 +3665,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7641031579481856850, guid: fea563a877e1d984ca185b2f8bb6a181,
-        type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 8490349078661411583, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
@@ -4789,9 +4773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6cab4a4ab15f64f99737de48fc6fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
   regionColor: {r: 0, g: 0, b: 0, a: 0}
   boxCollider: {fileID: 1870795586}
   layerIndex: 7

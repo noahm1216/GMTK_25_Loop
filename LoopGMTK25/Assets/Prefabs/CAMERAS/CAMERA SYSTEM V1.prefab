@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 62
-    OrthographicSize: 4
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 62
-    OrthographicSize: 6
+    OrthographicSize: 5.4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 62
-    OrthographicSize: 4.5
+    OrthographicSize: 5.2
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -839,4 +839,7 @@ MonoBehaviour:
     duration: 0.3
   - name: Smooth
     style: 1
-    duration: 1
+    duration: 0.7
+  - name: Land
+    style: 1
+    duration: 0.1

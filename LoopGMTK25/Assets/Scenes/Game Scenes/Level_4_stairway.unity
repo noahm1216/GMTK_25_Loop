@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -216,7 +216,7 @@ Camera:
   far clip plane: 1000
   field of view: 62
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 5.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8321,11 +8321,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 416262704107691578, guid: fea563a877e1d984ca185b2f8bb6a181,
-        type: 3}
-      propertyPath: _transitionPresets.Array.data[2].duration
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 922275517904286462, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8375,11 +8370,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7641031579481856850, guid: fea563a877e1d984ca185b2f8bb6a181,
-        type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 8490349078661411583, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
