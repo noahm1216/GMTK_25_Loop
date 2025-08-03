@@ -18,6 +18,7 @@ public class SimpleCameraEffects : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _baseCamera;
     [SerializeField] private CinemachineVirtualCamera _zoomCamera;
     [SerializeField] private CinemachineVirtualCamera _zoomOutCamera;
+    [SerializeField] private CinemachineVirtualCamera _finishCamera;
     [SerializeField] private CinemachineVirtualCamera _shakeCamera;
 
     [Header("Transition Presets")]
@@ -67,6 +68,12 @@ public class SimpleCameraEffects : MonoBehaviour
         ApplyPreset(2);
         _zoomOutCamera.Priority = 20;
         
+    }
+
+    public void ActivateFinishCam()
+    {
+        ApplyPreset(4);
+        _finishCamera.Priority = 20;
     }
 
     public void PlayZoomOutEffect(float duration)
@@ -122,7 +129,7 @@ public class SimpleCameraEffects : MonoBehaviour
 
     public void ResetAllCameras()
     {
-        ApplyPreset(4);
+        ApplyPreset(3);
         _baseCamera.Priority = 10;
         _zoomCamera.Priority = 0;
         _zoomOutCamera.Priority = 0;

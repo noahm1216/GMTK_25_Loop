@@ -30,6 +30,7 @@ public class GoalController : MonoBehaviour
             if (counter >= maxTime)
             {
                 // Optional: Trigger goal reached logic here
+                SimpleCameraEffects.Instance.ActivateFinishCam();
                 onWin?.Invoke();
                 counter = maxTime;
                 Debug.Log("Goal reached!");
