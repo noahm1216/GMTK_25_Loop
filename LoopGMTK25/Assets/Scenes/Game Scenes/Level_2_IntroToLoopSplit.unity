@@ -1086,7 +1086,7 @@ Camera:
   far clip plane: 1000
   field of view: 62
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 5.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 0.7
+    m_Time: 0.3
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -19695,11 +19695,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 416262704107691578, guid: fea563a877e1d984ca185b2f8bb6a181,
-        type: 3}
-      propertyPath: _transitionPresets.Array.data[2].duration
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 922275517904286462, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_LocalPosition.x

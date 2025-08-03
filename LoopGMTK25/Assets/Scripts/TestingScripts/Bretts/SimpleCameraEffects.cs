@@ -122,6 +122,7 @@ public class SimpleCameraEffects : MonoBehaviour
 
     public void ResetAllCameras()
     {
+        ApplyPreset(4);
         _baseCamera.Priority = 10;
         _zoomCamera.Priority = 0;
         _zoomOutCamera.Priority = 0;
