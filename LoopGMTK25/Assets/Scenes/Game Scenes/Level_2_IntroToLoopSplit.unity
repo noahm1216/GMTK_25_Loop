@@ -1086,7 +1086,7 @@ Camera:
   far clip plane: 1000
   field of view: 62
   orthographic: 1
-  orthographic size: 5.2
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19756,15 +19756,30 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 279226153}
-    - target: {fileID: 7641031579481856850, guid: fea563a877e1d984ca185b2f8bb6a181,
-        type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 4.25
-      objectReference: {fileID: 0}
     - target: {fileID: 8490349078661411583, guid: fea563a877e1d984ca185b2f8bb6a181,
         type: 3}
       propertyPath: m_Name
       value: CAMERA SYSTEM V1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98541266
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.07566019
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15199116
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159128011426676564, guid: fea563a877e1d984ca185b2f8bb6a181,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.011669913
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
